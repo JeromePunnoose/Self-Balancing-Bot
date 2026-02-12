@@ -1,10 +1,10 @@
-# 🤖 Self-Balancing Robot
+#  Self-Balancing Robot
 
 A two-wheel **self-balancing robot** based on the **inverted pendulum principle** using a **PID control algorithm**.
 
 ---
 
-## 📌 Project Overview
+##  Project Overview
 
 This robot maintains upright balance by continuously measuring tilt angle using an **MPU6050 IMU sensor** and applying a **PID controller** to adjust motor speed in real time.
 
@@ -12,7 +12,7 @@ The system runs a fast control loop to ensure stability and smooth correction.
 
 ---
 
-## 🧠 Control Theory
+##  Control Theory
 
 The robot uses:
 
@@ -34,9 +34,9 @@ error = 0° - measured_angle
 
 ---
 
-## 🔧 Hardware Components
+##  Hardware Components
 
-- **Arduino UNO / ESP (mention your controller)**
+- **Arduino UNO **
 - **MPU6050 (Gyroscope + Accelerometer)**
 - **L298N Motor Driver**
 - **2 × 18650 Li-ion Batteries (7.4V nominal)**
@@ -45,7 +45,7 @@ error = 0° - measured_angle
 
 ---
 
-## ⚙️ Working Principle
+##  Working Principle
 
 1. IMU measures tilt angle.
 2. Current angle is compared to setpoint (0°).
@@ -55,7 +55,7 @@ error = 0° - measured_angle
 
 ---
 
-## 🔋 Power Architecture
+##  Power Architecture
 
 ```
 2S Li-ion Battery (7.4V)
@@ -66,7 +66,7 @@ error = 0° - measured_angle
 
 ---
 
-## ✨ Features
+##  Features
 
 - Complementary filter for angle estimation
 - Adjustable PID parameters
@@ -76,7 +76,7 @@ error = 0° - measured_angle
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 Self-Balancing-Robot/
@@ -95,7 +95,7 @@ Self-Balancing-Robot/
 
 ---
 
-## 🚀 Future Improvements
+##  Future Improvements
 
 - Bluetooth / App control
 - Kalman filter implementation
@@ -104,13 +104,13 @@ Self-Balancing-Robot/
 
 ---
 
-## 📸 Project Demonstration
+## Project Demonstration
 
 (Add project images or video link here)
 
 ---
 
-## 📜 License
+##  License
 
 This project is open-source under the **MIT License**.
 
