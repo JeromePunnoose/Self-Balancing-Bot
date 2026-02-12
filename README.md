@@ -36,7 +36,7 @@ error = 0° - measured_angle
 
 ##  Hardware Components
 
-- **Arduino UNO **
+- **Arduino UNO**
 - **MPU6050 (Gyroscope + Accelerometer)**
 - **L298N Motor Driver**
 - **2 × 18650 Li-ion Batteries (7.4V nominal)**
