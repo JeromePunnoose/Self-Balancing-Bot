@@ -1,120 +1,118 @@
-#  Self-Balancing Robot
+# Self-Balancing Robot
 
-A two-wheel **self-balancing robot** based on the **inverted pendulum principle** using a **PID control algorithm**.
+## Overview
 
----
+This project presents the design and implementation of a two-wheeled self-balancing robot capable of maintaining an upright position autonomously. The robot continuously measures its tilt angle using an Inertial Measurement Unit (IMU) and applies a feedback control algorithm to stabilize itself.
 
-##  Project Overview
-
-This robot maintains upright balance by continuously measuring tilt angle using an **MPU6050 IMU sensor** and applying a **PID controller** to adjust motor speed in real time.
-
-The system runs a fast control loop to ensure stability and smooth correction.
+The balancing process is achieved through a closed-loop control system where sensor data is processed in real time and the motors are adjusted to counteract any deviation from the vertical position.
 
 ---
 
-##  Control Theory
+## Objectives
 
-The robot uses:
-
-- **Proportional (P)** – Reacts to current error  
-- **Integral (I)** – Corrects accumulated past error  
-- **Derivative (D)** – Predicts future error  
-
-### PID Equation
-
-```
-Output = Kp * error + Ki * sum(error) + Kd * rate_of_error
-```
-
-Where:
-
-```
-error = 0° - measured_angle
-```
+- Design a two-wheeled self-balancing robot.
+- Measure the robot's tilt angle using an IMU.
+- Implement real-time feedback control.
+- Stabilize the robot using PID control.
+- Improve balancing performance through controller tuning.
 
 ---
 
-##  Hardware Components
+## Working Principle
 
-- **Arduino UNO**
-- **MPU6050 (Gyroscope + Accelerometer)**
-- **L298N Motor Driver**
-- **2 × 18650 Li-ion Batteries (7.4V nominal)**
-- **DC Gear Motors**
-- Buck Converter (for regulated 5V supply)
+The robot behaves like an inverted pendulum. Since the center of gravity lies above the wheel axis, the robot becomes unstable whenever it tilts.
 
----
+The IMU continuously measures the pitch angle of the robot. The controller compares the measured angle with the desired upright position (0°) and computes an error.
 
-##  Working Principle
+The PID controller generates the appropriate motor control signal based on this error. The motors rotate in the required direction to move the wheels beneath the center of gravity, restoring balance.
 
-1. IMU measures tilt angle.
-2. Current angle is compared to setpoint (0°).
-3. PID controller calculates correction.
-4. Motor driver adjusts wheel speed.
-5. Process repeats continuously (~200–500 Hz).
+This process repeats continuously at high speed, allowing the robot to remain balanced.
 
 ---
 
-##  Power Architecture
+## System Components
 
-```
-2S Li-ion Battery (7.4V)
-        │
-        ├── L298N → Motors
-        └── Buck Converter → 5V → MCU + IMU
-```
+- Microcontroller
+- IMU Sensor (Accelerometer + Gyroscope)
+- DC Geared Motors
+- Motor Driver
+- Battery Pack
+- Chassis
+- Wheels
 
 ---
 
-##  Features
+## Control Algorithm
 
-- Complementary filter for angle estimation
-- Adjustable PID parameters
-- Real-time balancing control
+The robot uses a Proportional–Integral–Derivative (PID) controller.
+
+The control signal is computed as
+
+\[
+u(t)=K_p e(t)+K_i\int e(t)dt+K_d\frac{de(t)}{dt}
+\]
+
+where
+
+- \(e(t)\) is the tilt angle error
+- \(K_p\) is the proportional gain
+- \(K_i\) is the integral gain
+- \(K_d\) is the derivative gain
+
+Proper tuning of these gains enables smooth and stable balancing.
+
+---
+
+## Features
+
+- Real-time balancing
+- Closed-loop feedback control
+- PID-based stabilization
+- Continuous IMU angle estimation
+- Differential motor control
 - Modular hardware design
-- Rechargeable Li-ion battery system
 
 ---
 
-##  Project Structure
+## Applications
+
+- Mobile robotics
+- Autonomous platforms
+- Control system education
+- Embedded systems learning
+- Inverted pendulum experiments
+- Robotics research
+
+---
+
+## Repository Structure
 
 ```
 Self-Balancing-Robot/
 │
-├── Code/
-│   └── self_balancing_robot.ino
-│
+├── Arduino_Code/
 ├── Hardware/
-│   └── circuit_diagram.png
-│
+├── Circuit_Diagram/
 ├── Images/
-│   └── robot.jpg
-│
+├── Videos/
+├── Documentation/
 └── README.md
 ```
 
 ---
 
-##  Future Improvements
+## Future Improvements
 
-- Bluetooth / App control
-- Kalman filter implementation
-- Upgrade to **TB6612FNG motor driver**
+- Bluetooth control
+- Wi-Fi monitoring
+- LQR control
+- Kalman Filter implementation
+- ROS integration
 - Autonomous navigation
+- Obstacle avoidance
 
 ---
 
-## Project Demonstration
+## Conclusion
 
-(Add project images or video link here)
-
----
-
-##  License
-
-This project is open-source under the **MIT License**.
-
----
-
-### 👨‍💻 Developed by
-Your Name
+This project demonstrates the practical implementation of a self-balancing robot using feedback control principles. By combining real-time sensor measurements with PID control, the robot is able to maintain stability and recover from disturbances, making it an excellent platform for studying control systems, embedded programming, and robotics.
